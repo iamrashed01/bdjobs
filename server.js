@@ -16,12 +16,13 @@ app.use(morgan('dev'));
 app.use('/admin', admin);
 
 // routes
-app.get('/', (req, res) => {
+app.get('/api', (req, res) => {
   res.send('welcome to bdjobs');
 });
+app.use('/api/auth', require('./routers/auth'));
 
 // admin
-admin.get('/', (req, res) => {
+admin.get('/api', (req, res) => {
   res.send('welcome to admin app');
 });
 

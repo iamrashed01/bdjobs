@@ -1,0 +1,9 @@
+@import 'fonts';
+@import 'colors';
+@import 'mixin';
+
+/*== common typography ==*/
+%typoBasic {
+  font-size: $small_font_size;
+  font-weight: $wightRegular;
+}

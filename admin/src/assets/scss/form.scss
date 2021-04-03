@@ -1,0 +1,29 @@
+.srv-validation-message {
+  font-size: $small_font_size;
+  color: $primary_color;
+  margin-bottom: 20px;
+}
+
+//react-datepicker-wrapper
+.react-datepicker-wrapper {
+  width: 100%;
+
+  //TODO: date pickter on the reports page need to fix
+  .react-datepicker__input-container {
+    input {
+      font-size: 14px;
+      font-weight: 400;
+      color: #888;
+      padding: 16px 14px;
+      width: 100%;
+      border-radius: 4px;
+      border: 1px solid rgba(0, 0, 0, 0.23);
+
+      &:hover,
+      &:focus {
+        outline: none;
+        border: 1px solid rgba(0, 0, 0, 0.87);
+      }
+    }
+  }
+}

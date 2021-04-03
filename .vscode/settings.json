@@ -1,0 +1,17 @@
+{
+  "files.autoSave": "afterDelay",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.tslint": true,
+    "source.organizeImports": true
+  },
+  "eslint.alwaysShowStatus": true,
+  "[javascript]": {
+    "editor.formatOnSave": false,
+    "editor.defaultFormatter": null
+  },
+  "[javascriptreact]": {
+    "editor.formatOnSave": false,
+    "editor.defaultFormatter": null
+  },
+}

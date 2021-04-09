@@ -1,6 +1,11 @@
 const express = require('express');
+require('express-async-errors');
 const cors = require('cors');
 const morgan = require('morgan');
+require('dotenv').config();
+
+// utils
+const { errorSend } = require('./utils/responseSender');
 
 const connectDB = require('./db/connectDB');
 
@@ -9,6 +14,8 @@ const app = express(); // main application
 const admin = express(); // admin application as sub application
 
 // middlewares
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(cors());
 app.use(morgan('dev'));
 
@@ -24,6 +31,16 @@ app.use('/api/auth', require('./routers/auth'));
 // admin
 admin.get('/api', (req, res) => {
   res.send('welcome to admin app');
+});
+
+app.use((err, req, res, next) => {
+  if (err.message === 'access denied') {
+    errorSend(res, 403, err.message);
+  } else if (err.message) {
+    errorSend(res, 500, err.message);
+  }
+
+  next(err);
 });
 
 // app listener

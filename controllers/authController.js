@@ -111,7 +111,7 @@ exports.verifyAccountController = async (req, res) => {
   }
 
   if (user.email_verification_status) {
-    return successSend(res, 400, 'User already verified');
+    return errorSend(res, 400, 'User already verified');
   }
 
   const validCode = await bcrypt.compare(req.body.code, user.email_verification_code);

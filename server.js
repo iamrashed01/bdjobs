@@ -27,6 +27,7 @@ app.get('/api', (req, res) => {
   res.send('welcome to bdjobs');
 });
 app.use('/api/auth', require('./routers/auth'));
+app.use('/api/profile', require('./routers/user'));
 
 // admin
 admin.get('/api', (req, res) => {

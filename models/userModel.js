@@ -33,7 +33,7 @@ const userSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
-  email_verification_code: String,
+  verification_code: String,
 });
 
 userSchema.methods.generateAuthToken = function () {

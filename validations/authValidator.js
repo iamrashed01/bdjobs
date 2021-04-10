@@ -20,3 +20,20 @@ module.exports.loginValidator = (data) => {
   });
   return schema.validate(data);
 };
+
+module.exports.forgetPasswordValidator = (data) => {
+  const schema = Joi.object({
+    email: Joi.string().email().required(),
+  });
+  return schema.validate(data);
+};
+
+module.exports.resetPasswordValidator = (data) => {
+  const schema = Joi.object({
+    email: Joi.string().email().required(),
+    code: Joi.number().min(6),
+    password: Joi.string().min(6).max(255).required(),
+    confirm_password: Joi.ref('password'),
+  });
+  return schema.validate(data);
+};

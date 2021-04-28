@@ -30,9 +30,7 @@ app.use('/api/auth', require('./routers/auth'));
 app.use('/api/profile', require('./routers/user'));
 
 // admin
-admin.get('/api', (req, res) => {
-  res.send('welcome to admin app');
-});
+admin.use('/api/attribute', require('./routers/attribute'));
 
 app.use((err, req, res, next) => {
   if (err.message === 'access denied') {
